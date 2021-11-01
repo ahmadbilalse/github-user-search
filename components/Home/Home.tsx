@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import styles from "./Home.module.scss";
-import { HiSun } from "react-icons/hi";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import SearchForm from "../SearchForm/SearchForm";
 import InfoCard from "../InfoCard/InfoCard";
 
@@ -16,10 +16,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.header}>
           <h1 className={styles.heading}>devFinder</h1>
-          <button className={styles.themeSwitcher}>
-            <p className={styles.themeText}>LIGHT</p>
-            <HiSun className={styles.icon} />
-          </button>
+          <ThemeSwitcher />
         </div>
         <div className={styles.searchForm}>
           <SearchForm />

@@ -1,9 +1,18 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+  --primary-color: #0079FE;
+  --font-primary-color: #EFF6FF;
+  --font-secondary-color: #CCD6EF;
+  --background-color: #141C2F;
+  --surface-color: #1F2A48;
+  --on-primary-color: #FFF,
+}
+
+html {
+  font-size: 10px;
+  font-family: 'Space Mono', monospace;
 }
 
 a {

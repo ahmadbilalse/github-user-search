@@ -1,0 +1,59 @@
+@use '../../styles/metrics';
+
+.container {
+  min-height: 100vh;
+  padding: 4.1rem 2.4rem;
+  background-color: var(--background-color);
+  color: var(--font-primary-color);
+
+  @media (min-width: metrics.$medium-width) {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+  }
+
+  @media (min-width: metrics.$large-width) {
+    padding: 10rem;
+  }
+}
+
+.main {
+  max-width: 73rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-size: 2.5rem;
+}
+
+.themeSwitcher {
+  background-color: transparent;
+  margin: 0;
+  border: none;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--font-primary-color);
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+.themeText {
+  margin: 0;
+  margin-right: 2rem;
+}
+
+.infoCard {
+  margin-top: 1.6rem;
+}

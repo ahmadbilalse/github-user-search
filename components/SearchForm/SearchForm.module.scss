@@ -1,0 +1,58 @@
+@use '../../styles/metrics';
+
+.container {
+  width: 100%;
+  height: 6rem;
+  padding: 0.7rem;
+  background-color: var(--surface-color);
+  display: flex;
+  align-items: center;
+  border-radius: metrics.$border-radius;
+}
+
+.icon {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin: 0 0.9rem;
+}
+
+.input {
+  font-size: 1.4rem;
+  height: 100%;
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--font-primary-color);
+}
+
+.input::placeholder {
+  color: var(--font-secondary-color);
+}
+
+.button {
+  border: none;
+  height: 100%;
+  padding: 1.6rem;
+  background-color: var(--primary-color);
+  border-radius: metrics.$border-radius;
+  color: var(--on-primary-color);
+}
+
+@media (min-width: 600px) {
+  .container {
+    width: 100%;
+    height: 6rem;
+    padding: 1.1rem;
+    background-color: var(--surface-color);
+    display: flex;
+    align-items: center;
+    border-radius: metrics.$border-radius;
+  }
+
+  .icon {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 0 2.5rem;
+  }
+}

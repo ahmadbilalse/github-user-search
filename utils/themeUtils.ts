@@ -8,7 +8,7 @@ export const themeType: ThemeType = {
   light: 'light',
 }
 
-const themeStyle = {
+export const themeStyle = {
   dark: {
     '--primary-color': '#0079FE',
     '--disabled-color': '#8E95A6',

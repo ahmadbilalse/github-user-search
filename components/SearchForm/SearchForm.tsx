@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { SyntheticEvent, useEffect, useState } from "react";
 import styles from "./SearchForm.module.scss";
 import { BsSearch } from "react-icons/bs";
 import Loader from "../Loader/Loader";
@@ -11,7 +11,7 @@ export default function SearchForm() {
   const [getData, { loading }] = useLazyQuery(GITHUB_USER_DATA);
   const gSetInput = useStore((state) => state.setInput);
 
-  const handleClick = (e) => {
+  const handleClick = (e: SyntheticEvent) => {
     e.preventDefault();
     getData({
       variables: { login: input },
@@ -19,8 +19,8 @@ export default function SearchForm() {
     gSetInput(input);
   };
 
-  const handleChange = (e) => {
-    setInput(e.target.value);
+  const handleChange = (e: SyntheticEvent) => {
+    setInput((e.target as HTMLInputElement).value);
   };
 
   return (

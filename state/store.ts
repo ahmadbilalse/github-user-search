@@ -1,9 +1,9 @@
-import { themeType } from './../utils/themeUtils';
+import { themeStyle, themeType } from './../utils/themeUtils';
 import create from 'zustand';
 
-let savedTheme: string | null;
+let savedTheme: keyof typeof themeStyle | null;
 if (typeof window !== 'undefined') {
-  savedTheme = localStorage.getItem('theme');
+  savedTheme = localStorage.getItem('theme') as keyof typeof themeStyle;
 }
 
 export type GithubUser = {

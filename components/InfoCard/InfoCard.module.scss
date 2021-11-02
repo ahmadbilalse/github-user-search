@@ -119,6 +119,7 @@
 .contacts {
   font-size: 1.4rem;
   line-height: 1.5;
+  word-break: break-word;
 
   @media (min-width: utils.$small-width) {
     display: grid;
@@ -131,6 +132,10 @@
 .contacts>* {
   display: flex;
   align-items: center;
+}
+
+.contacts * {
+  overflow-wrap: break-word;
 }
 
 .icon {

@@ -150,3 +150,10 @@
   transform: translateX(-50%) translateY(-50%);
   color: var(--disabled-color);
 }
+
+.loader {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

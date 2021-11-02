@@ -9,10 +9,11 @@ import { GITHUB_USER_DATA } from "../../utils/graphql";
 import useStore, { GithubUser } from "../../state/store";
 import classNames from "classnames";
 import NotFound from "../NotFound/NotFound";
+import Loader from "../Loader/Loader";
 
 export default function InfoCard() {
   const gInput = useStore((state) => state.input);
-  const { data } = useQuery(GITHUB_USER_DATA, {
+  const { data, loading } = useQuery(GITHUB_USER_DATA, {
     variables: { login: gInput },
   });
   const monthNames = [
@@ -57,7 +58,11 @@ export default function InfoCard() {
 
   return (
     <div className={styles.container}>
-      {user && user?.login ? (
+      {loading ? (
+        <div className={styles.loader}>
+          <Loader />
+        </div>
+      ) : user && user?.login ? (
         <>
           <div className={styles.avatar}>
             <div className={styles.avatarImage}>

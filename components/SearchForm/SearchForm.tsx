@@ -1,7 +1,6 @@
 import React, { SyntheticEvent, useEffect, useState } from "react";
 import styles from "./SearchForm.module.scss";
 import { BsSearch } from "react-icons/bs";
-import Loader from "../Loader/Loader";
 import { useLazyQuery } from "@apollo/client";
 import { GITHUB_USER_DATA } from "../../utils/graphql";
 import useStore from "../../state/store";
@@ -33,11 +32,7 @@ export default function SearchForm() {
         className={styles.input}
         type="text"
       />
-      {loading ? (
-        <div className={styles.loader}>
-          <Loader />
-        </div>
-      ) : (
+      {loading ? null : (
         <button onClick={handleClick} className={styles.button}>
           Search
         </button>

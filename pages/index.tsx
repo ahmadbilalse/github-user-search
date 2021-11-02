@@ -3,6 +3,8 @@ import Home from "../components/Home/Home";
 import useIsomorphicLayoutEffect from "../utils/useIsomorphicLayoutEffect";
 import useStore from "../state/store";
 import { applyTheme } from "../utils/themeUtils";
+import { client } from "../utils/graphql";
+import { ApolloProvider } from "@apollo/client";
 
 const App: NextPage = () => {
   const theme = useStore((state) => state.theme);
@@ -10,7 +12,11 @@ const App: NextPage = () => {
     applyTheme(theme);
   });
 
-  return <Home />;
+  return (
+    <ApolloProvider client={client}>
+      <Home />
+    </ApolloProvider>
+  );
 };
 
 export default App;

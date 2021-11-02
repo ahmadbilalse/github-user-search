@@ -39,7 +39,7 @@ export default function InfoCard() {
       avatarUrl: newData.avatarUrl,
       bio: newData.bio,
       name: newData.name,
-      login: `@${newData.login}`,
+      login: newData.login,
       createdAt: newData.createdAt,
       followerCount: newData.followers.totalCount,
       followingCount: newData.following.totalCount,
@@ -79,7 +79,14 @@ export default function InfoCard() {
               >
                 {user?.name || "[No Name]"}
               </h2>
-              <h2 className={styles.username}>{user?.login}</h2>
+              <a
+                href={`https://github.com/${user?.login}`}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.username}
+              >
+                @{user?.login}
+              </a>
               <p className={styles.joinDate}>{user?.createdAt}</p>
             </div>
           </div>
@@ -109,6 +116,7 @@ export default function InfoCard() {
             <div className={styles.contacts}>
               <div
                 className={classNames({
+                  [styles.contactItem]: true,
                   [styles.unavailable]: !user?.location,
                 })}
               >
@@ -117,22 +125,48 @@ export default function InfoCard() {
               </div>
               <div
                 className={classNames({
+                  [styles.contactItem]: true,
                   [styles.unavailable]: !user?.websiteUrl,
                 })}
               >
                 <MdLink className={styles.icon} />
-                <p>{user?.websiteUrl || "Not available"}</p>
+                <a
+                  className={classNames({
+                    [styles.link]: user?.websiteUrl,
+                  })}
+                  href={
+                    /^https*:\/\//.test(user?.websiteUrl)
+                      ? user?.websiteUrl
+                      : `https://${user?.websiteUrl}`
+                  }
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {user?.websiteUrl || "Not available"}
+                </a>
               </div>
               <div
                 className={classNames({
+                  [styles.contactItem]: true,
                   [styles.unavailable]: !user?.twitterUsername,
                 })}
               >
                 <BsTwitter className={styles.icon} />
-                <p>{user?.twitterUsername || "Not available"}</p>
+                <a
+                  className={classNames({
+                    [styles.link]: user?.twitterUsername,
+                    [styles.unavailable]: !user?.twitterUsername,
+                  })}
+                  href={`https://twitter.com/${user?.twitterUsername}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {user?.twitterUsername || "Not available"}
+                </a>
               </div>
               <div
                 className={classNames({
+                  [styles.contactItem]: true,
                   [styles.unavailable]: !user?.company,
                 })}
               >

@@ -6,3 +6,12 @@ $large-width: 1000px;
 .unavailable {
   color: var(--disabled-color);
 }
+
+a.unavailable {
+  pointer-events: none;
+}
+
+.link::after {
+  content: '\2197';
+  margin-left: 0.5rem;
+}

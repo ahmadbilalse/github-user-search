@@ -8,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import { GITHUB_USER_DATA } from "../../utils/graphql";
 import useStore, { GithubUser } from "../../state/store";
 import classNames from "classnames";
+import NotFound from "../NotFound/NotFound";
 
 export default function InfoCard() {
   const gInput = useStore((state) => state.input);
@@ -56,83 +57,91 @@ export default function InfoCard() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.avatar}>
-        <div className={styles.avatarImage}>
-          {user?.avatarUrl ? (
-            <Image src={user?.avatarUrl} alt="User avatar" layout="fill" />
-          ) : null}
+      {user && user?.login ? (
+        <>
+          <div className={styles.avatar}>
+            <div className={styles.avatarImage}>
+              {user?.avatarUrl ? (
+                <Image src={user?.avatarUrl} alt="User avatar" layout="fill" />
+              ) : null}
+            </div>
+            <div className={styles.avatarInfo}>
+              <h2
+                className={classNames({
+                  [styles.name]: true,
+                  [styles.unavailable]: !user?.name,
+                })}
+              >
+                {user?.name || "[No Name]"}
+              </h2>
+              <h2 className={styles.username}>{user?.login}</h2>
+              <p className={styles.joinDate}>{user?.createdAt}</p>
+            </div>
+          </div>
+          <div className={styles.userDetail}>
+            <p
+              className={classNames({
+                [styles.description]: true,
+                [styles.unavailable]: !user?.bio,
+              })}
+            >
+              {user?.bio || "This profile has no bio"}
+            </p>
+            <div className={styles.stats}>
+              <div>
+                <p>Repos</p>
+                <p className={styles.statsNumber}>{user?.repositoryCount}</p>
+              </div>
+              <div>
+                <p>Followers</p>
+                <p className={styles.statsNumber}>{user?.followerCount}</p>
+              </div>
+              <div>
+                <p>Following</p>
+                <p className={styles.statsNumber}>{user?.followingCount}</p>
+              </div>
+            </div>
+            <div className={styles.contacts}>
+              <div
+                className={classNames({
+                  [styles.unavailable]: !user?.location,
+                })}
+              >
+                <MdLocationOn className={styles.icon} />
+                <p>{user?.location || "Not available"}</p>
+              </div>
+              <div
+                className={classNames({
+                  [styles.unavailable]: !user?.websiteUrl,
+                })}
+              >
+                <MdLink className={styles.icon} />
+                <p>{user?.websiteUrl || "Not available"}</p>
+              </div>
+              <div
+                className={classNames({
+                  [styles.unavailable]: !user?.twitterUsername,
+                })}
+              >
+                <BsTwitter className={styles.icon} />
+                <p>{user?.twitterUsername || "Not available"}</p>
+              </div>
+              <div
+                className={classNames({
+                  [styles.unavailable]: !user?.company,
+                })}
+              >
+                <BiBuildings className={styles.icon} />
+                <p>{user?.company || "Not available"}</p>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className={styles.notFound}>
+          <NotFound />
         </div>
-        <div className={styles.avatarInfo}>
-          <h2
-            className={classNames({
-              [styles.name]: true,
-              [styles.unavailable]: !user?.name,
-            })}
-          >
-            {user?.name || "[No Name]"}
-          </h2>
-          <h2 className={styles.username}>{user?.login}</h2>
-          <p className={styles.joinDate}>{user?.createdAt}</p>
-        </div>
-      </div>
-      <div className={styles.userDetail}>
-        <p
-          className={classNames({
-            [styles.description]: true,
-            [styles.unavailable]: !user?.bio,
-          })}
-        >
-          {user?.bio || "This profile has no bio"}
-        </p>
-        <div className={styles.stats}>
-          <div>
-            <p>Repos</p>
-            <p className={styles.statsNumber}>{user?.repositoryCount}</p>
-          </div>
-          <div>
-            <p>Followers</p>
-            <p className={styles.statsNumber}>{user?.followerCount}</p>
-          </div>
-          <div>
-            <p>Following</p>
-            <p className={styles.statsNumber}>{user?.followingCount}</p>
-          </div>
-        </div>
-        <div className={styles.contacts}>
-          <div
-            className={classNames({
-              [styles.unavailable]: !user?.location,
-            })}
-          >
-            <MdLocationOn className={styles.icon} />
-            <p>{user?.location || "Not available"}</p>
-          </div>
-          <div
-            className={classNames({
-              [styles.unavailable]: !user?.websiteUrl,
-            })}
-          >
-            <MdLink className={styles.icon} />
-            <p>{user?.websiteUrl || "Not available"}</p>
-          </div>
-          <div
-            className={classNames({
-              [styles.unavailable]: !user?.twitterUsername,
-            })}
-          >
-            <BsTwitter className={styles.icon} />
-            <p>{user?.twitterUsername || "Not available"}</p>
-          </div>
-          <div
-            className={classNames({
-              [styles.unavailable]: !user?.company,
-            })}
-          >
-            <BiBuildings className={styles.icon} />
-            <p>{user?.company || "Not available"}</p>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

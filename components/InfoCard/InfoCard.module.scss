@@ -6,6 +6,7 @@
   border-radius: utils.$border-radius;
   font-size: 1.5rem;
   position: relative;
+  min-height: 42rem;
 
   @media (min-width: utils.$medium-width) {
     padding: 4.7rem;
@@ -135,4 +136,12 @@
 .icon {
   margin-right: 1.3rem;
   font-size: 2rem;
+}
+
+.notFound {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translateX(-50%) translateY(-50%);
+  color: var(--disabled-color);
 }

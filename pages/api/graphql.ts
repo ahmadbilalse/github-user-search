@@ -17,6 +17,7 @@ const typeDefs = gql`
     login: String
     createdAt: String
     followers: Followers
+    following: Following
     location: String
     twitterUsername: String
     repositories: Repositories
@@ -25,6 +26,10 @@ const typeDefs = gql`
   }
 
   type Followers {
+    totalCount: Int
+  }
+
+  type Following {
     totalCount: Int
   }
 
@@ -42,6 +47,9 @@ const GITHUB_USER_DATA = gql`
       login
       createdAt
       followers {
+        totalCount
+      }
+      following {
         totalCount
       }
       location
@@ -76,7 +84,6 @@ const resolvers = {
         .then(result => {
           return result.data.user;
         });
-      console.log(data);
       return data;
     },
   },

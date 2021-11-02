@@ -1,4 +1,4 @@
-@use '../../styles/metrics';
+@use '../../styles/utils';
 
 .container {
   width: 100%;
@@ -7,7 +7,7 @@
   background-color: var(--surface-color);
   display: flex;
   align-items: center;
-  border-radius: metrics.$border-radius;
+  border-radius: utils.$border-radius;
   position: relative;
 }
 
@@ -36,7 +36,7 @@
   height: 100%;
   padding: 1.6rem;
   background-color: var(--primary-color);
-  border-radius: metrics.$border-radius;
+  border-radius: utils.$border-radius;
   color: var(--on-primary-color);
 }
 
@@ -53,7 +53,7 @@
     background-color: var(--surface-color);
     display: flex;
     align-items: center;
-    border-radius: metrics.$border-radius;
+    border-radius: utils.$border-radius;
   }
 
   .icon {

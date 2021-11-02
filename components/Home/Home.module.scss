@@ -1,4 +1,4 @@
-@use '../../styles/metrics';
+@use '../../styles/utils';
 
 .container {
   min-height: 100vh;
@@ -6,7 +6,7 @@
   background-color: var(--background-color);
   color: var(--font-primary-color);
 
-  @media (min-width: metrics.$medium-width) {
+  @media (min-width: utils.$medium-width) {
     display: flex;
     min-height: 100vh;
     justify-content: center;
@@ -14,12 +14,13 @@
     padding: 5rem;
   }
 
-  @media (min-width: metrics.$large-width) {
+  @media (min-width: utils.$large-width) {
     padding: 10rem;
   }
 }
 
 .main {
+  width: 100%;
   max-width: 73rem;
 }
 

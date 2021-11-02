@@ -20,6 +20,9 @@ export const GITHUB_USER_DATA = gql`
       followers {
         totalCount
       }
+      following {
+        totalCount
+      }
       location
       twitterUsername
       repositories {

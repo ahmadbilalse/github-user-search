@@ -6,9 +6,19 @@ if (typeof window !== 'undefined') {
   savedTheme = localStorage.getItem('theme');
 }
 
-interface GithubUser {
-  name: string,
-  username: string,
+export type GithubUser = {
+  avatarUrl: string
+  bio: string
+  name: string
+  login: string
+  createdAt: string
+  followerCount: number
+  followingCount: number
+  location: string
+  twitterUsername: string
+  repositoryCount: string
+  websiteUrl: string
+  company: string
 }
 
 const useStore = create(set => ({

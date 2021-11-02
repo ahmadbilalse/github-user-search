@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SearchForm.module.scss";
 import { BsSearch } from "react-icons/bs";
 import Loader from "../Loader/Loader";
 import { useLazyQuery } from "@apollo/client";
 import { GITHUB_USER_DATA } from "../../utils/graphql";
+import useStore from "../../state/store";
 
 export default function SearchForm() {
   const [input, setInput] = useState("");
-  const [getData, { loading, error, data }] = useLazyQuery(GITHUB_USER_DATA);
+  const [getData, { loading }] = useLazyQuery(GITHUB_USER_DATA);
+  const gSetInput = useStore((state) => state.setInput);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     getData({
       variables: { login: input },
     });
+    gSetInput(input);
   };
 
   const handleChange = (e) => {
@@ -20,7 +24,7 @@ export default function SearchForm() {
   };
 
   return (
-    <div className={styles.container}>
+    <form className={styles.container}>
       <BsSearch className={styles.icon} />
       <input
         onChange={handleChange}
@@ -38,6 +42,6 @@ export default function SearchForm() {
           Search
         </button>
       )}
-    </div>
+    </form>
   );
 }

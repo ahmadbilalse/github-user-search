@@ -1,6 +1,7 @@
 @use '../../styles/utils';
 
 .container {
+  height: 100vh;
   min-height: 100vh;
   padding: 4.1rem 2.4rem;
   background-color: var(--background-color);

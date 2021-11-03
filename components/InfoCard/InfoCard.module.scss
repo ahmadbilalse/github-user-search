@@ -27,6 +27,7 @@
   overflow: hidden;
   position: relative;
   background-color: var(--surface-color);
+  flex-shrink: 0;
 
   @media (min-width: utils.$medium-width) {
     width: 12rem;

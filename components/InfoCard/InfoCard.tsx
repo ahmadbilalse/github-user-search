@@ -67,7 +67,7 @@ export default function InfoCard() {
           <div className={styles.avatar}>
             <div className={styles.avatarImage}>
               {user?.avatarUrl ? (
-                <Image src={user?.avatarUrl} alt="User avatar" layout="fill" />
+                <Image src={user?.avatarUrl} priority alt="User avatar" layout="fill" />
               ) : null}
             </div>
             <div className={styles.avatarInfo}>

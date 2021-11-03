@@ -18,6 +18,7 @@
 }
 
 .input {
+  width: 100%;
   font-size: 1.4rem;
   height: 100%;
   flex: 1;
@@ -31,13 +32,26 @@
   color: var(--font-secondary-color);
 }
 
+.clearButton {
+  background-color: transparent;
+  color: var(--font-primary-color);
+  font-size: 3rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
 .button {
   border: none;
   height: 100%;
-  padding: 1.6rem;
+  padding: 0 1.6rem;
   background-color: var(--primary-color);
   border-radius: utils.$border-radius;
   color: var(--on-primary-color);
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(120%);
 }
 
 .loader {

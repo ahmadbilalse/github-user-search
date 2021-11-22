@@ -1,0 +1,17 @@
+@use '../../styles/utils';
+
+.container {
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: utils.$border-radius;
+  text-align: center;
+}
+
+.container > * {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 1rem;
+}

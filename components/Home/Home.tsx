@@ -4,6 +4,7 @@ import styles from "./Home.module.scss";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import SearchForm from "../SearchForm/SearchForm";
 import InfoCard from "../InfoCard/InfoCard";
+import GithubLink from "../GithubLink/GithubLink";
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
         </div>
         <div className={styles.infoCard}>
           <InfoCard />
+        </div>
+        <div className={styles.githubLink}>
+          <GithubLink />
         </div>
       </main>
     </div>

@@ -1,7 +1,6 @@
 @use '../../styles/utils';
 
 .container {
-  height: 100vh;
   min-height: 100vh;
   padding: 4.1rem 2.4rem;
   background-color: var(--background-color);
@@ -9,14 +8,9 @@
 
   @media (min-width: utils.$medium-width) {
     display: flex;
-    min-height: 100vh;
     justify-content: center;
     align-items: center;
     padding: 5rem;
-  }
-
-  @media (min-width: utils.$large-width) {
-    padding: 10rem;
   }
 }
 
@@ -37,11 +31,4 @@
 
 .infoCard {
   margin-top: 1.6rem;
-}
-
-.githubLink {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
 }

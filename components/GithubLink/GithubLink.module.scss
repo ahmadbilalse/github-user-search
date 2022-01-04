@@ -2,14 +2,13 @@
 
 .container {
   font-size: 1.6rem;
-  padding: 1rem;
-  border-radius: utils.$border-radius;
-  text-align: center;
+  padding: 2rem;
 }
 
 .container > * {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .icon {
